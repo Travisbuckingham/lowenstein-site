@@ -1,0 +1,1668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Lewis and Joan Lowenstein Foundation | Helping Others Reach the Stars</title>
+<meta name="description" content="The Lewis and Joan Lowenstein Foundation — Helping Others Reach the Stars. Supporting education, healthcare, and community initiatives in Houston and beyond, honoring the legacy of Lewis and Joan Lowenstein.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0d2b4e;
+    --blue: #1a4b8c;
+    --sky: #3a8fd1;
+    --mist: #d6e8f5;
+    --pearl: #f2f7fc;
+    --gold: #b8933e;
+    --gold-light: #e8d49a;
+    --forest: #1a5632;
+    --forest-light: #2d7a4a;
+    --white: #ffffff;
+    --text: #1c2b3a;
+    --text-soft: #4a6278;
+    --border: #c5d8ec;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  a, button { -webkit-tap-highlight-color: transparent; }
+  * { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    font-size: 17px;
+    color: var(--text);
+    background: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 48px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: box-shadow 0.3s;
+  }
+  nav.scrolled { box-shadow: 0 4px 24px rgba(13,43,78,0.1); }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+  .nav-logo-img { max-height: 56px; width: auto; display: block; }
+  .nav-logo-text { display: flex; flex-direction: column; gap: 2px; }
+
+  .nav-logo-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--navy);
+    letter-spacing: 0.02em;
+    line-height: 1;
+  }
+  .nav-logo-sub {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+    align-items: center;
+  }
+  .nav-links a {
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-soft);
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--navy); }
+
+  .nav-contact-btn {
+    background: var(--navy);
+    color: var(--white) !important;
+    padding: 10px 22px;
+    border-radius: 2px;
+    letter-spacing: 0.1em !important;
+    transition: background 0.2s !important;
+  }
+  .nav-contact-btn:hover { background: var(--blue) !important; color: var(--white) !important; }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+    background: linear-gradient(165deg, var(--navy) 0%, #1a3c6b 45%, #2a6ba8 100%);
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 120px 80px 80px;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 700px; height: 700px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(58,143,209,0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -100px; left: 10%;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(184,147,62,0.1) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  /* subtle grid texture */
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 680px;
+  }
+  .hero-logo-wrap {
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeUp 0.8s forwards 0.2s;
+  }
+  .hero-logo {
+    max-width: 460px;
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+
+  .hero-eyebrow {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    opacity: 0;
+    animation: fadeUp 0.8s forwards 0.2s;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 40px; height: 1px;
+    background: var(--gold);
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(48px, 6vw, 80px);
+    font-weight: 300;
+    line-height: 1.08;
+    color: var(--white);
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeUp 0.8s forwards 0.4s;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  .hero-desc {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.75);
+    max-width: 520px;
+    margin-bottom: 48px;
+    opacity: 0;
+    animation: fadeUp 0.8s forwards 0.6s;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.8s forwards 0.8s;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--white);
+    text-decoration: none;
+    padding: 14px 32px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    transition: background 0.2s, transform 0.2s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: #9a7a30; transform: translateY(-1px); }
+
+  .btn-outline {
+    border: 1px solid rgba(255,255,255,0.4);
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    padding: 14px 32px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    transition: border-color 0.2s, color 0.2s, transform 0.2s;
+    display: inline-block;
+  }
+  .btn-outline:hover {
+    border-color: rgba(255,255,255,0.8);
+    color: var(--white);
+    transform: translateY(-1px);
+  }
+
+  .hero-image-col {
+    position: absolute;
+    right: 80px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    opacity: 0;
+    animation: fadeLeft 1s forwards 0.9s;
+  }
+
+  .hero-photo-frame {
+    width: 320px;
+    height: 420px;
+    position: relative;
+  }
+  .hero-photo-frame::before {
+    content: '';
+    position: absolute;
+    top: -16px; left: -16px;
+    right: 16px; bottom: 16px;
+    border: 1px solid rgba(184,147,62,0.5);
+    border-radius: 2px;
+    z-index: 0;
+  }
+  .hero-photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 2px;
+    position: relative;
+    z-index: 1;
+    display: block;
+    position: relative;
+    z-index: 1;
+    display: block;
+  }
+  .hero-photo-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(160deg, #1a4b8c 0%, #0d2b4e 100%);
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    gap: 16px;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .hero-photo-placeholder svg {
+    width: 60px;
+    height: 60px;
+    opacity: 0.2;
+  }
+  .hero-photo-placeholder span {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.3);
+    text-align: center;
+    padding: 0 20px;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  .hero-caption {
+    position: absolute;
+    bottom: -52px;
+    left: 0; right: 0;
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    font-style: italic;
+    color: rgba(255,255,255,0.55);
+    z-index: 1;
+  }
+
+  /* ─── GRANT BANNER ─── */
+  .grant-banner {
+    background: #fdf8ee;
+    border-top: 3px solid var(--gold);
+    border-bottom: 1px solid #e8d49a;
+    padding: 18px 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s;
+  }
+  .grant-banner.hidden { display: none; }
+
+  .grant-banner-icon {
+    width: 20px;
+    height: 20px;
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+
+  .grant-banner-text {
+    font-size: 16px;
+    font-weight: 500;
+    color: #6b4e1a;
+    letter-spacing: 0.02em;
+  }
+  .grant-banner-text strong { font-weight: 600; }
+
+  .grant-dismiss {
+    margin-left: auto;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #9a7033;
+    font-size: 18px;
+    line-height: 1;
+    padding: 4px;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+  }
+  .grant-dismiss:hover { opacity: 1; }
+
+  /* ─── PILLARS ─── */
+  .pillars {
+    background: var(--white);
+    padding: 100px 80px;
+  }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-label::before {
+    content: '';
+    width: 32px; height: 1px;
+    background: var(--gold);
+    display: block;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 4vw, 52px);
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--navy);
+    margin-bottom: 20px;
+  }
+
+  .section-subtitle {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.8;
+    color: var(--text-soft);
+    max-width: 560px;
+    margin-bottom: 64px;
+  }
+
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .pillar-card {
+    background: var(--white);
+    padding: 48px 40px;
+    transition: background 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .pillar-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 40px;
+    width: 0; height: 2px;
+    background: var(--gold);
+    transition: width 0.4s ease;
+  }
+  .pillar-card:hover { background: var(--pearl); }
+  .pillar-card:hover::after { width: calc(100% - 80px); }
+
+  .pillar-icon {
+    width: 44px;
+    height: 44px;
+    background: var(--mist);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    color: var(--blue);
+  }
+  .pillar-icon svg { width: 20px; height: 20px; }
+
+  .pillar-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 14px;
+    letter-spacing: 0.01em;
+  }
+  .pillar-text {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--text-soft);
+    font-weight: 400;
+  }
+
+  /* ─── STORY ─── */
+  .story {
+    background: var(--pearl);
+    padding: 100px 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .story-visual {
+    position: relative;
+  }
+
+
+  .story-narrative-block {
+    background: linear-gradient(160deg, var(--navy) 0%, #1a3c6b 100%);
+    border-radius: 4px;
+    padding: 44px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .story-narrative-block::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: linear-gradient(180deg, var(--gold), transparent);
+  }
+
+  .story-narrative-tagline {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+  }
+  .story-narrative-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 500;
+    color: var(--gold-light);
+    margin-bottom: 20px;
+    letter-spacing: 0.01em;
+  }
+  .story-narrative-text {
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 16px;
+  }
+  .story-narrative-text:last-child { margin-bottom: 0; }
+
+  .story-quote-block {
+    background: var(--navy);
+    border-radius: 4px;
+    padding: 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .story-quote-block::before {
+    content: '\201C';
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 180px;
+    color: rgba(255,255,255,0.06);
+    position: absolute;
+    top: -20px; left: 20px;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .story-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 28px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .story-attribution {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+  }
+
+  .story-timeline {
+    margin-top: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .timeline-item {
+    display: flex;
+    gap: 20px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+  }
+  .timeline-item:last-child { border-bottom: none; }
+
+  .timeline-year {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--gold);
+    min-width: 48px;
+    padding-top: 2px;
+  }
+  .timeline-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--forest-light);
+    border: 2px solid var(--white);
+    box-shadow: 0 0 0 1px var(--border);
+    flex-shrink: 0;
+    margin-top: 6px;
+  }
+  .timeline-text {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--text-soft);
+  }
+
+  .story-content {}
+  .story-body {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.9;
+    color: var(--text-soft);
+    margin-bottom: 24px;
+  }
+
+  .values-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 36px;
+  }
+  .value-tag {
+    background: var(--white);
+    border: 1px solid var(--border);
+    color: var(--navy);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 8px 16px;
+    border-radius: 100px;
+  }
+
+  /* ─── IMPACT AREAS ─── */
+  .impact {
+    background: var(--white);
+    padding: 100px 80px;
+  }
+
+  .impact-intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    margin-bottom: 64px;
+    align-items: end;
+  }
+
+  .impact-areas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .impact-area {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 36px 32px;
+    transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    cursor: default;
+    background: var(--white);
+    position: relative;
+    overflow: hidden;
+  }
+  .impact-area::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--forest-light));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+  .impact-area:hover {
+    border-color: var(--sky);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(13,43,78,0.08);
+  }
+  .impact-area:hover::before { transform: scaleX(1); }
+
+  .impact-area-icon {
+    font-size: 28px;
+    margin-bottom: 16px;
+  }
+  .impact-area-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+  .impact-area-text {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.8;
+    color: var(--text-soft);
+  }
+
+  /* ─── BOARD ─── */
+  .board {
+    background: var(--navy);
+    padding: 100px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .board::before {
+    content: '';
+    position: absolute;
+    top: -150px; right: -150px;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(58,143,209,0.1) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .board .section-label { color: var(--gold-light); }
+  .board .section-label::before { background: var(--gold); }
+  .board .section-title { color: var(--white); }
+  .board .section-subtitle { color: rgba(255,255,255,0.6); margin-bottom: 56px; }
+
+  .board-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+
+  .board-group-title {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .board-members {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .board-member {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 20px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 4px;
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .board-member:hover {
+    background: rgba(255,255,255,0.09);
+    border-color: rgba(255,255,255,0.15);
+  }
+
+  .board-member-avatar {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--sky), var(--blue));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--white);
+    flex-shrink: 0;
+  }
+
+  .board-member-name {
+    font-size: 17px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.9);
+    letter-spacing: 0.01em;
+  }
+
+  .board-member-role {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin-top: 2px;
+  }
+
+  /* ─── CONTACT ─── */
+  .contact {
+    background: var(--pearl);
+    padding: 100px 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .contact-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 56px;
+    box-shadow: 0 8px 40px rgba(13,43,78,0.06);
+  }
+
+  .contact-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--sky);
+    margin-bottom: 8px;
+  }
+  .contact-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+  .contact-title {
+    font-size: 15px;
+    color: var(--text-soft);
+    margin-bottom: 36px;
+    font-weight: 400;
+  }
+
+  .contact-method {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .contact-method:last-child { border-bottom: none; }
+
+  .contact-method-icon {
+    width: 36px; height: 36px;
+    background: var(--mist);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--blue);
+  }
+  .contact-method-icon svg { width: 16px; height: 16px; }
+
+  .contact-method-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-soft);
+  }
+  .contact-method-value {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--navy);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .contact-method-value:hover { color: var(--sky); }
+
+  .contact-info {}
+  .contact-note {
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.9;
+    color: var(--text-soft);
+    margin-bottom: 32px;
+  }
+  .contact-note strong { font-weight: 500; color: var(--navy); }
+
+  .grants-closed-box {
+    background: #fef9ec;
+    border: 1px solid #e8d49a;
+    border-left: 3px solid var(--gold);
+    border-radius: 4px;
+    padding: 24px;
+    margin-top: 32px;
+  }
+  .grants-closed-title {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #9a7033;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .grants-closed-title::before {
+    content: '●';
+    color: #d4a017;
+    font-size: 8px;
+  }
+  .grants-closed-text {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.7;
+    color: #6b4e1a;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: #081d33;
+    padding: 64px 80px 40px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 64px;
+    margin-bottom: 56px;
+  }
+
+  .footer-brand {}
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--white);
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  .footer-motto {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+  }
+  .footer-tagline {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.45);
+    max-width: 280px;
+  }
+
+  .footer-col-title {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 20px;
+  }
+
+  .footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .footer-links a {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.55);
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: rgba(255,255,255,0.9); }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.07);
+    padding-top: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .footer-copy {
+    font-size: 12px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.3);
+  }
+  .footer-location {
+    font-size: 12px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.05em;
+  }
+
+  /* ─── GRANT TOGGLE (admin) ─── */
+  .admin-toggle-bar {
+    background: #f0f4f8;
+    border-top: 1px solid #dce6f0;
+    padding: 12px 80px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+    font-size: 12px;
+    color: var(--text-soft);
+  }
+
+  .toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 22px;
+  }
+  .toggle-switch input { opacity: 0; width: 0; height: 0; }
+  .toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: #ccc;
+    border-radius: 22px;
+    transition: 0.3s;
+  }
+  .toggle-slider::before {
+    content: '';
+    position: absolute;
+    height: 16px; width: 16px;
+    left: 3px; bottom: 3px;
+    background: white;
+    border-radius: 50%;
+    transition: 0.3s;
+  }
+  .toggle-switch input:checked + .toggle-slider { background: var(--gold); }
+  .toggle-switch input:checked + .toggle-slider::before { transform: translateX(18px); }
+
+
+  /* ─── GRANT GUIDELINES ─── */
+  .guidelines {
+    background: var(--white);
+    padding: 100px 80px;
+    position: relative;
+  }
+  .guidelines-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    margin-bottom: 48px;
+  }
+  .guidelines-card {
+    background: var(--pearl);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 40px 36px;
+    position: relative;
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+  }
+  .guidelines-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(26,86,50,0.10);
+    border-color: var(--forest-light);
+  }
+  .guidelines-card-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 16px;
+    opacity: 0.85;
+  }
+  .guidelines-card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 14px;
+    letter-spacing: 0.01em;
+  }
+  .guidelines-card-text {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.8;
+    color: var(--text-soft);
+  }
+  .guidelines-note {
+    background: #fef9ec;
+    border: 1px solid #e8d49a;
+    border-left: 4px solid var(--gold);
+    border-radius: 4px;
+    padding: 24px 28px;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #6b4e1a;
+    font-weight: 400;
+  }
+  .guidelines-note strong { font-weight: 600; color: #4a3410; }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeLeft {
+    from { opacity: 0; transform: translateX(30px) translateY(-50%); }
+    to { opacity: 1; transform: translateX(0) translateY(-50%); }
+  }
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 1100px) {
+    .hero { padding: 120px 48px 80px; }
+    .hero-image-col { display: none; }
+    .pillars { padding: 80px 48px; }
+    .pillars-grid { grid-template-columns: 1fr 1fr; }
+    .story { padding: 80px 48px; grid-template-columns: 1fr; gap: 48px; }
+    .impact { padding: 80px 48px; }
+    .impact-intro { grid-template-columns: 1fr; gap: 0; }
+    .impact-areas { grid-template-columns: 1fr 1fr; }
+    .guidelines { padding: 80px 48px; }
+    .board { padding: 80px 48px; }
+    .contact { padding: 80px 48px; grid-template-columns: 1fr; gap: 48px; }
+    footer { padding: 60px 48px 36px; }
+    nav { padding: 0 32px; }
+    .grant-banner { padding: 18px 48px; }
+    .admin-toggle-bar { padding: 12px 48px; }
+    .footer-top { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  @media (max-width: 900px) {
+    .hero { padding: 110px 40px 70px; }
+    .hero-logo { max-width: 400px; }
+    .hero-image-col { display: none; }
+    .pillars { padding: 70px 40px; }
+    .pillars-grid { grid-template-columns: 1fr 1fr; }
+    .story { padding: 70px 40px; grid-template-columns: 1fr; gap: 48px; }
+    .impact { padding: 70px 40px; }
+    .impact-intro { grid-template-columns: 1fr; gap: 0; }
+    .impact-areas { grid-template-columns: 1fr 1fr; }
+    .guidelines { padding: 70px 40px; }
+    .guidelines-grid { grid-template-columns: 1fr; gap: 24px; }
+    .board { padding: 70px 40px; }
+    .board-grid { grid-template-columns: 1fr; gap: 36px; }
+    .contact { padding: 70px 40px; grid-template-columns: 1fr; gap: 48px; }
+    footer { padding: 56px 40px 36px; }
+    nav { padding: 0 28px; }
+    .grant-banner { padding: 16px 40px; }
+    .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+  }
+
+  @media (max-width: 720px) {
+    nav { padding: 0 24px; }
+    .nav-links { gap: 20px; }
+    .nav-links li:not(:last-child) { display: none; }
+    .nav-links { gap: 12px; }
+    .hero { padding: 100px 24px 60px; }
+    .hero-logo { max-width: 300px; }
+    .nav-logo-img { max-height: 42px; }
+    .pillars { padding: 60px 24px; }
+    .pillars-grid { grid-template-columns: 1fr; }
+    .story { padding: 60px 24px; }
+    .impact { padding: 60px 24px; }
+    .impact-areas { grid-template-columns: 1fr; }
+    .guidelines { padding: 60px 24px; }
+    .guidelines-grid { grid-template-columns: 1fr; gap: 20px; }
+    .guidelines-card { padding: 32px 26px; }
+    .board { padding: 60px 24px; }
+    .board-grid { grid-template-columns: 1fr; gap: 36px; }
+    .contact { padding: 60px 24px; }
+    .contact-card { padding: 36px 28px; }
+    footer { padding: 48px 24px 32px; }
+    .grant-banner { padding: 14px 24px; flex-wrap: wrap; }
+    .admin-toggle-bar { padding: 12px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <a href="#top" class="nav-logo">
+    <span class="nav-logo-name">Lewis & Joan Lowenstein Foundation</span>
+    <span class="nav-logo-sub">Established in Houston, Texas</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#story">Our Story</a></li>
+    <li><a href="#impact">Impact</a></li>
+    <li><a href="#board">Board</a></li>
+    <li><a href="#guidelines">Guidelines</a></li>
+    <li><a href="#contact" class="nav-contact-btn">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- GRANT NOTICE BANNER -->
+<div class="grant-banner" id="grant-banner">
+  <svg class="grant-banner-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><circle cx="12" cy="16" r="1" fill="currentColor" stroke="none"/>
+  </svg>
+  <span class="grant-banner-text"><strong>Notice:</strong> The Lewis & Joan Lowenstein Foundation is not currently accepting new grant applications.</span>
+  <button class="grant-dismiss" onclick="document.getElementById('grant-banner').classList.add('hidden')" aria-label="Dismiss">×</button>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-logo-wrap">
+      <img src="logo-light.png" alt="The Lewis and Joan Lowenstein Foundation — Helping Others Reach the Stars" class="hero-logo" onerror="this.style.display='none'; this.parentElement.nextElementSibling.style.display='block';" />
+    </div>
+    <h1 class="hero-title" style="display:none;">
+      The Lewis &amp; Joan<br>Lowenstein<br><em>Foundation</em>
+    </h1>
+    <div class="hero-location">Houston, Texas</div>
+    <p class="hero-desc">
+      The Lewis and Joan Lowenstein Foundation carries forward a lifelong commitment to education, community, and human dignity — honoring two lives defined by humble beginnings, hard work, and compassion for others.
+    </p>
+    <div class="hero-actions">
+      <a href="#story" class="btn-primary">Our Story</a>
+      <a href="#impact" class="btn-outline">Areas of Impact</a>
+    </div>
+  </div>
+
+  <div class="hero-image-col">
+    <div class="hero-photo-frame">
+      <img
+        src="/images/impact-lowenstein-foundation.webp"
+        alt="Lewis and Joan Lowenstein"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+      />
+      <div class="hero-photo-placeholder" style="display:none;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+        <span>Lewis & Joan Lowenstein</span>
+      </div>
+    </div>
+    <div class="hero-caption">Lewis & Joan Lowenstein · Houston, Texas</div>
+  </div>
+</section>
+
+<!-- MISSION PILLARS -->
+<section class="pillars" id="about">
+  <div class="section-label fade-in">Our Foundation</div>
+  <h2 class="section-title fade-in">Guided by Enduring Values</h2>
+  <p class="section-subtitle fade-in">
+    Established to carry forward the philanthropic spirit of Lewis and Joan Lowenstein, the Foundation supports initiatives that create meaningful and lasting impact in the lives of others.
+  </p>
+
+  <div class="pillars-grid fade-in">
+    <div class="pillar-card">
+      <div class="pillar-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+        </svg>
+      </div>
+      <div class="pillar-title">Education & Opportunity</div>
+      <p class="pillar-text">The Lowensteins believed deeply in the transformative power of education. The Foundation honors this by supporting scholarships, academic programs, and initiatives that open doors for young people with potential to make a difference.</p>
+    </div>
+    <div class="pillar-card">
+      <div class="pillar-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+      </div>
+      <div class="pillar-title">Community & Human Services</div>
+      <p class="pillar-text">From healthcare and senior services to faith-based initiatives and community development, the Foundation invests in the fabric of Houston and beyond — strengthening the communities Lewis and Joan loved.</p>
+    </div>
+    <div class="pillar-card">
+      <div class="pillar-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+      </div>
+      <div class="pillar-title">Integrity & Faith</div>
+      <p class="pillar-text">Hard work, personal responsibility, and compassion were more than ideals — they were a way of life for the Lowensteins. The Foundation continues to support Jewish organizations and faith-based programs that reflect these principles.</p>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="story" id="story">
+  <div class="story-left fade-in">
+    <div class="section-label">Their Story</div>
+    <h2 class="section-title">From Humble Beginnings to a Lasting Legacy</h2>
+    <p class="story-body">Lewis Lowenstein was born in Missouri and met Joan Shyer in Tennessee, where the two married in 1935. They later settled in Houston, where Lewis built a successful automobile finance business that eventually expanded across 10 states.</p>
+    <p class="story-body">After retiring in 1960, Lewis devoted much of his time and energy to philanthropy, community support, and helping others. Joan passed away in 1998, and Lewis died in 2010 at the age of 100.</p>
+    <p class="story-body">The Lowensteins believed strongly in hard work, personal responsibility, and compassion for others. They valued education, opportunity, and the importance of investing in people — particularly young people with the potential to make a difference in the world.</p>
+
+    <div class="values-row">
+      <span class="value-tag">Generosity</span>
+      <span class="value-tag">Integrity</span>
+      <span class="value-tag">Education</span>
+      <span class="value-tag">Faith</span>
+      <span class="value-tag">Service</span>
+      <span class="value-tag">Compassion</span>
+    </div>
+  </div>
+
+  <div class="story-visual fade-in">
+    <div class="story-narrative-block">
+      <div class="story-narrative-tagline">Helping Others Reach the Stars</div>
+      <h3 class="story-narrative-title">Continuing the Legacy</h3>
+      <p class="story-narrative-text">Over the decades, the Foundation has quietly supported hundreds of organizations, families, and individuals across Houston and beyond. Guided by the values Lewis and Joan lived by — humility, generosity, and unwavering commitment to community — the Foundation continues to invest in the causes closest to their hearts.</p>
+      <p class="story-narrative-text">Today, under the leadership of the Hidalgo family and a dedicated board, the Foundation carries this legacy forward — supporting education, healthcare, faith communities, and the well-being of those who depend on the strength of others.</p>
+    </div>
+
+    <div class="story-timeline">
+      <div class="timeline-item">
+        <span class="timeline-year">1935</span>
+        <div class="timeline-dot"></div>
+        <p class="timeline-text">Lewis and Joan marry in Tennessee and begin building their life together.</p>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-year">1940s</span>
+        <div class="timeline-dot"></div>
+        <p class="timeline-text">The Lowensteins settle in Houston, where Lewis establishes a thriving automobile finance business spanning 10 states.</p>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-year">1960</span>
+        <div class="timeline-dot"></div>
+        <p class="timeline-text">Lewis retires and devotes himself fully to philanthropy, community service, and helping others.</p>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-year">1998</span>
+        <div class="timeline-dot"></div>
+        <p class="timeline-text">Joan Lowenstein passes away, leaving behind a profound legacy of warmth and generosity.</p>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-year">2010</span>
+        <div class="timeline-dot"></div>
+        <p class="timeline-text">Lewis Lowenstein passes at the age of 100. The Foundation is established to carry his values forward, with <strong>Harold Hidalgo Sr.</strong> serving as <strong>President</strong>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT AREAS -->
+<section class="impact" id="impact">
+  <div class="impact-intro">
+    <div>
+      <div class="section-label fade-in">Areas of Focus</div>
+      <h2 class="section-title fade-in">Where We Invest</h2>
+    </div>
+    <p class="section-subtitle fade-in" style="margin-bottom:0;">Over the years, the Foundation has supported a wide range of charitable organizations in Houston and beyond, with particular emphasis on the following areas.</p>
+  </div>
+
+  <div class="impact-areas fade-in">
+    <div class="impact-area">
+      <div class="impact-area-icon">🎓</div>
+      <div class="impact-area-title">Education & Scholarships</div>
+      <p class="impact-area-text">Supporting student scholarships, academic achievement programs, and educational institutions that expand access and opportunity.</p>
+    </div>
+    <div class="impact-area">
+      <div class="impact-area-icon">🏥</div>
+      <div class="impact-area-title">Healthcare</div>
+      <p class="impact-area-text">Funding organizations that advance healthcare, improve patient outcomes, and serve the medical needs of underserved communities.</p>
+    </div>
+    <div class="impact-area">
+      <div class="impact-area-icon">✡️</div>
+      <div class="impact-area-title">Jewish Organizations</div>
+      <p class="impact-area-text">Supporting Jewish institutions, cultural programs, and faith-based initiatives that preserve heritage and strengthen community bonds.</p>
+    </div>
+    <div class="impact-area">
+      <div class="impact-area-icon">🙏</div>
+      <div class="impact-area-title">Faith-Based Initiatives</div>
+      <p class="impact-area-text">Partnering with organizations rooted in faith that provide social services, community support, and moral guidance.</p>
+    </div>
+    <div class="impact-area">
+      <div class="impact-area-icon">👴</div>
+      <div class="impact-area-title">Senior Services</div>
+      <p class="impact-area-text">Investing in programs that support elderly individuals, providing care, dignity, and quality of life in their later years.</p>
+    </div>
+    <div class="impact-area">
+      <div class="impact-area-icon">🌆</div>
+      <div class="impact-area-title">Community Development</div>
+      <p class="impact-area-text">Funding organizations that build stronger communities through housing, civic programs, and long-term infrastructure for those in need.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BOARD -->
+<section class="board" id="board">
+  <div class="section-label fade-in">Leadership</div>
+  <h2 class="section-title fade-in">Board of Directors</h2>
+  <p class="section-subtitle fade-in">The Foundation is guided by a dedicated board of directors and advisory board committed to honoring the Lowensteins' enduring vision.</p>
+
+  <div class="board-grid fade-in">
+    <div>
+      <div class="board-group-title">Board of Directors</div>
+      <div class="board-members">
+        <div class="board-member">
+          <div class="board-member-avatar">HH</div>
+          <div>
+            <div class="board-member-name">Harold Hidalgo Sr.</div>
+            <div class="board-member-role">President &amp; Treasurer</div>
+          </div>
+        </div>
+        <div class="board-member">
+          <div class="board-member-avatar">LW</div>
+          <div>
+            <div class="board-member-name">Leonard Weiner</div>
+            <div class="board-member-role">Vice President &amp; Secretary</div>
+          </div>
+        </div>
+        <div class="board-member">
+          <div class="board-member-avatar">AM</div>
+          <div>
+            <div class="board-member-name">Anna Marie Hidalgo</div>
+            <div class="board-member-role">Director</div>
+          </div>
+        </div>
+        <div class="board-member">
+          <div class="board-member-avatar">AP</div>
+          <div>
+            <div class="board-member-name">Amy Peck</div>
+            <div class="board-member-role">Director</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="board-group-title">Advisory Board</div>
+      <div class="board-members">
+        <div class="board-member">
+          <div class="board-member-avatar" style="background: linear-gradient(135deg, #b8933e, #8c6b2a);">DH</div>
+          <div>
+            <div class="board-member-name">Douglas Hidalgo</div>
+            <div class="board-member-role">Director</div>
+          </div>
+        </div>
+        <div class="board-member">
+          <div class="board-member-avatar" style="background: linear-gradient(135deg, #b8933e, #8c6b2a);">GP</div>
+          <div>
+            <div class="board-member-name">Geoff Peck</div>
+            <div class="board-member-role">Director</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 40px; padding: 28px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 4px;">
+        <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 12px;">Foundation Administrator</div>
+        <div style="font-family: 'Cormorant Garamond', serif; font-size: 18px; color: rgba(255,255,255,0.85); margin-bottom: 4px;">Diane Guiberteau</div>
+        <a href="mailto:diane.guiberteau@gmail.com" style="font-size: 15px; color: var(--sky); text-decoration: none; font-weight: 300; transition: color 0.2s;" onmouseover="this.style.color='#80c4ed'" onmouseout="this.style.color='var(--sky)'">diane.guiberteau@gmail.com</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GRANT GUIDELINES -->
+<section class="guidelines" id="guidelines">
+  <div class="section-label fade-in">Applications</div>
+  <h2 class="section-title fade-in">Grant Guidelines</h2>
+  <p class="section-subtitle fade-in">The following guidelines outline the Foundation's grant priorities, eligibility requirements, and application process. These guidelines may be updated periodically to reflect the Foundation's evolving priorities.</p>
+
+  <div class="guidelines-grid fade-in">
+    <div class="guidelines-card">
+      <div class="guidelines-card-number">01</div>
+      <h3 class="guidelines-card-title">Mission Alignment</h3>
+      <p class="guidelines-card-text">The Foundation supports organizations whose work aligns with our core areas of focus: education, healthcare, Jewish organizations, faith-based initiatives, senior services, and community development. Applicants should demonstrate a clear connection between their programs and the Foundation's mission.</p>
+    </div>
+
+    <div class="guidelines-card">
+      <div class="guidelines-card-number">02</div>
+      <h3 class="guidelines-card-title">Eligibility</h3>
+      <p class="guidelines-card-text">Applicants must be recognized 501(c)(3) tax-exempt organizations in good standing. Priority is given to organizations serving the Greater Houston area and communities the Lowenstein family cared about deeply throughout their lives.</p>
+    </div>
+
+    <div class="guidelines-card">
+      <div class="guidelines-card-number">03</div>
+      <h3 class="guidelines-card-title">Funding Priorities</h3>
+      <p class="guidelines-card-text">The Foundation prioritizes programs that create lasting impact — particularly those that invest in young people, strengthen families, support the elderly, and preserve religious and cultural heritage. General operating support, program funding, and capital projects are all considered on a case-by-case basis.</p>
+    </div>
+
+    <div class="guidelines-card">
+      <div class="guidelines-card-number">04</div>
+      <h3 class="guidelines-card-title">Application Process</h3>
+      <p class="guidelines-card-text">When the Foundation is actively accepting applications, prospective grantees are asked to submit a letter of inquiry via email to the Foundation Administrator. Selected applicants may then be invited to submit a full proposal. All correspondence should be directed to Diane Guiberteau.</p>
+    </div>
+
+    <div class="guidelines-card">
+      <div class="guidelines-card-number">05</div>
+      <h3 class="guidelines-card-title">Review &amp; Notification</h3>
+      <p class="guidelines-card-text">The Board of Directors reviews all proposals at their discretion. Due to the volume of inquiries received, the Foundation is unable to respond individually to every request. Applicants selected for further consideration will be contacted directly.</p>
+    </div>
+
+    <div class="guidelines-card">
+      <div class="guidelines-card-number">06</div>
+      <h3 class="guidelines-card-title">Reporting</h3>
+      <p class="guidelines-card-text">Grantees may be asked to provide brief progress reports and financial summaries. The Foundation values relationships built on trust, transparency, and a shared commitment to the mission of serving others.</p>
+    </div>
+  </div>
+
+  <div class="guidelines-note fade-in">
+    <strong>Please Note:</strong> The Lewis &amp; Joan Lowenstein Foundation is not currently accepting new grant applications. The guidelines above are provided for informational purposes. Please check back at a future date for updates on grant availability.
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="fade-in">
+    <div class="section-label">Get In Touch</div>
+    <h2 class="section-title">Contact the Foundation</h2>
+    <p class="contact-note">
+      All correspondence, including <strong>proposal inquiries</strong>, should be directed via email to our Foundation Administrator. Please review our grant status notice before reaching out.
+    </p>
+    <p class="contact-note">
+      The Lewis and Joan Lowenstein Foundation is a private foundation rooted in <strong>Houston, Texas</strong>, with a mission to create meaningful and lasting impact through thoughtful, values-driven philanthropy.
+    </p>
+
+    <div class="grants-closed-box">
+      <div class="grants-closed-title">Grant Status Notice</div>
+      <p class="grants-closed-text">The Lewis and Joan Lowenstein Foundation is not currently accepting new grant applications. We appreciate your interest and encourage you to check back at a future date.</p>
+    </div>
+  </div>
+
+  <div class="contact-card fade-in">
+    <div class="contact-label">Foundation Administrator</div>
+    <div class="contact-name">Diane Guiberteau</div>
+    <div class="contact-title">All correspondence should be directed to Diane</div>
+
+    <div class="contact-method">
+      <div class="contact-method-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+        </svg>
+      </div>
+      <div>
+        <div class="contact-method-label">Email</div>
+        <a href="mailto:diane.guiberteau@gmail.com" class="contact-method-value">diane.guiberteau@gmail.com</a>
+      </div>
+    </div>
+
+    <div class="contact-method">
+      <div class="contact-method-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+          <circle cx="12" cy="10" r="3"/>
+        </svg>
+      </div>
+      <div>
+        <div class="contact-method-label">Location</div>
+        <span class="contact-method-value">Houston, Texas</span>
+      </div>
+    </div>
+
+    <div class="contact-method">
+      <div class="contact-method-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+          <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+        </svg>
+      </div>
+      <div>
+        <div class="contact-method-label">Type</div>
+        <span class="contact-method-value">Private Foundation</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ADMIN TOGGLE (for demonstration — can be removed or password-protected in production) -->
+<div class="admin-toggle-bar" style="display:none;">
+  <span>Grant applications banner:</span>
+  <label class="toggle-switch">
+    <input type="checkbox" id="grant-toggle" checked onchange="toggleGrant(this)">
+    <span class="toggle-slider"></span>
+  </label>
+  <span id="grant-toggle-label">Visible</span>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">Lewis & Joan<br>Lowenstein Foundation</div>
+      <div class="footer-motto">Helping Others Reach the Stars</div>
+      <p class="footer-tagline">Honoring a legacy of generosity, integrity, and service. Rooted in Houston, invested in humanity.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Navigation</div>
+      <ul class="footer-links">
+        <li><a href="#about">About the Foundation</a></li>
+        <li><a href="#story">Our Story</a></li>
+        <li><a href="#impact">Areas of Impact</a></li>
+        <li><a href="#board">Board of Directors</a></li>
+        <li><a href="#guidelines">Grant Guidelines</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <ul class="footer-links">
+        <li><a href="mailto:diane.guiberteau@gmail.com">diane.guiberteau@gmail.com</a></li>
+        <li><span style="font-size:16px;font-weight:400;color:rgba(255,255,255,0.55);">Houston, Texas</span></li>
+        <li><a href="https://lowensteinfoundation.com">lowensteinfoundation.com</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2024 Lewis & Joan Lowenstein Foundation. All rights reserved. · Private Foundation</div>
+    <div class="footer-location">Houston, Texas · Est. in honor of Lewis & Joan Lowenstein</div>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll effect
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Intersection observer for fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(el => {
+      if (el.isIntersecting) {
+        el.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Grant toggle (admin bar)
+  function toggleGrant(checkbox) {
+    const banner = document.getElementById('grant-banner');
+    const label = document.getElementById('grant-toggle-label');
+    if (checkbox.checked) {
+      banner.classList.remove('hidden');
+      label.textContent = 'Visible';
+    } else {
+      banner.classList.add('hidden');
+      label.textContent = 'Hidden';
+    }
+  }
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+</body>
+</html>
